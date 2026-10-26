@@ -21,17 +21,28 @@ while not menu:
 
     match opcion:
         case "1":
-            pass
+            from validaciones import main
+            alumnos, nota1, nota2, cantidad = main()
+            from procesamiento import sacar_promedio
+            promedio = sacar_promedio(nota1, nota2, cantidad)
         case "2":
-            pass
+            from validaciones import mostrar_datos
+            mostrar_datos(alumnos, nota1, nota2, cantidad)
+            from procesamiento import mostrar_promedio
+            mostrar_promedio(alumnos, nota1, nota2, cantidad, promedio)
         case "3":
             pass
         case "4":
             pass
         case "5":
-            pass
+            from procesamiento import buscar_alumno
+            buscar_alumno(alumnos, nota1, nota2, cantidad, promedio)
         case "6":
-            pass
+            from procesamiento import invertir_nombre, contar_vocales
+            nombre_alumno = input("Ingrese el nombre del alumno/a para el juego: ")
+            nombre_invertido = invertir_nombre(nombre_alumno)
+            vocales = contar_vocales(nombre_alumno)
+            print(f"El nombre elegido fue:{nombre_alumno}, tiene {vocales} vocales, y el nombre al reves es: {nombre_invertido}")
         case "0":
             print("Saliendo del programa")
             menu = True
